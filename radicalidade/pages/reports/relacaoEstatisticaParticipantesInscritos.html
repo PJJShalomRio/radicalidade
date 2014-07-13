@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+{% include 'header-reports.html'%}
+<title>Acamp's Rio 2014 - Estatística dos Participantes
+	Inscritos</title>
+</head>
+<body>
+	<img src="img/logo_small.png">
+	<h2 align="center">Estatística dos Participantes Inscritos</h2>
+
+	<div class="container">
+
+		<a href="#" onclick="window.print(); return false;">
+			<img src="img/icons/icon-printer.png">
+		</a>
+
+		<h3 align="center">Participantes por Sexo</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Feminino</th>
+					<th>Masculino</th>
+					<th>Total de Participante</th>
+				</tr>
+				<tr>
+					<td>{{ totalFeminino }}</td>
+					<td>{{ totalMasculino }}</td>
+					<td>{{ totalParticipantes }}</td>
+				</tr>
+			</table>
+		</div>
+		
+		<h3 align="center">Participantes por pagamento da inscrição</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Pagou</th>
+					<th>Não Pagou</th>
+				</tr>
+				<tr>
+					<td>{{ totalPaticipantesPagouInscricao }}</td>
+					<td>{{ totalPaticipantesNaoPagouInscricao }}</td>
+				</tr>
+			</table>
+		</div>
+		
+		<h3 align="center">Participantes por Idade</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Idade</th>
+					<th>Total</th>
+				</tr>
+				{% for key,value in participantesPorIdade.items %}
+				<tr>
+					<td>{{ key }}</td>
+					<td>{{ value }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		
+		<h3 align="center">Participantes por Cidade/Bairro</h3>
+		<h3 align="left">Cidade: Rio de Janeiro</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Bairro</th>
+					<th>Total</th>
+				</tr>
+				{% for key,value in participantesPorBairro.items %}
+				<tr>
+					<td>{{ key }}</td>
+					<td>{{ value }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<h3 align="left">Cidade: Outras Cidades</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Bairro</th>
+					<th>Total</th>
+				</tr>
+				{% for key,value in participantesPorOutrasCidades.items %}
+				<tr>
+					<td>{{ key }}</td>
+					<td>{{ value }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</body>
+</html>

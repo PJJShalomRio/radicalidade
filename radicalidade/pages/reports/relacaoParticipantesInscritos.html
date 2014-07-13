@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+{% include 'header-reports.html'%}
+<title>Acamp's Rio 2014 - Relação de Participantes Inscritos</title>
+
+</head>
+<body>
+	<img src="img/logo_small.png">
+	<h2 align="center">Relação de Participantes Inscritos</h2>
+
+	<div class="container">
+
+		<a href="#" onclick="window.print(); return false;">
+			<img src="img/icons/icon-printer.png">
+		</a>
+		<a href="/exportarParticipante">
+			<img src="img/icons/icon-excel.png">
+		</a>
+
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Celular</th>
+					<th>Pagou a inscrição?</th>
+				</tr>
+				{% for item in listaItens %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.email }}</td>
+					<td>{{ item.telCelular1 }}</td>
+					<td>{{ item.pagouInscricao }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th></th>
+					<th>{{ total }}</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

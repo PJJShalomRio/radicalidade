@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+{% include 'header-reports.html'%}
+<title>Acamp's Rio 2014 - Relação de Participantes por Família</title>
+</head>
+<body>
+	<img src="img/logo_small.png">
+	<h2 align="center">Relação de Participantes por Família</h2>
+
+	<div class="container">
+
+		<a href="#" onclick="window.print(); return false;">
+			<img src="img/icons/icon-printer.png">
+		</a>
+		<a href="/exportarFamilia">
+			<img src="img/icons/icon-excel.png">
+		</a>
+
+		<h3 align="center">Família BRANCA</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaBranca %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaBranca.count }}</th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h3 align="center">Família VERMELHA</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaVermeha %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaVermeha.count }}</th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h3 align="center">Família AMARELA</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaAmarela %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaAmarela.count }}</th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h3 align="center">Família VERDE</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaVerde %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaVerde.count }}</th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h3 align="center">Família AZUL</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaAzul %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaAzul.count }}</th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h3 align="center">Família CORAL</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaCoral %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaCoral.count }}</th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h3 align="center">Família PRETA</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaPreta %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaPreta.count }}</th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<h3 align="center">Família ROXA</h3>
+		<div class="tabela">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+					<th>Cidade/Bairro</th>
+				</tr>
+				{% for item in familiaRoxa %}
+				<tr>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.dataNascimento }}</td>
+					<td>{{ item.cidade }}/{{ item.bairro }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th>TOTAL</th>
+					<th></th>
+					<th>{{ familiaRoxa.count }}</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

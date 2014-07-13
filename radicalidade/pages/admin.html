@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-br">
+<head>{% include 'header.html'%}
+</head>
+<body>
+	{% include 'menu.html'%}
+
+	<section id="admin">
+		<div class="container">
+
+			<div class="row">
+				<div class="span12 centered">
+					<h2>Área administrativa</h2>
+					<div class="breaker">
+						<span class="left"></span>
+						<div class="feather"></div>
+						<span class="right"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<p>
+					Bem vindo {{usuarioLogado}} -
+					<a href="/logout">Sair</a>
+				</p>
+				<div class="span6">
+					<div class="box">
+						<h6>
+							<a href="/exportarParticipante">
+								<img src="img/icons/icon-excel.png">
+							</a>
+							<a href="/relacaoParticipantesInscritos" target="_blank">
+								<strong>Relação Participantes Inscritos</strong>
+							</a>
+						</h6>
+					</div>
+				</div>
+				<div class="span6">
+					<div class="box">
+						<h6>
+							<a href="/exportarServico">
+								<img src="img/icons/icon-excel.png">
+							</a>
+							<a href="/relacaoServicosInscritos" target="_blank">
+								<strong>Relação Servos Inscritos</strong>
+							</a>
+						</h6>
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span6">
+					<div class="box">
+						<h6>
+							<a href="/exportarOnibus">
+								<img src="img/icons/icon-excel.png">
+							</a>
+							<a href="/relacaoPessoasPorOnibus" target="_blank">
+								<strong>Relação Participantes por Ônibus</strong>
+							</a>
+						</h6>
+					</div>
+				</div>
+				<div class="span6">
+					<div class="box">
+						<h6>
+							<a href="/exportarFamilia">
+								<img src="img/icons/icon-excel.png">
+							</a>
+							<a href="/relacaoParticipantesPorFamilia" target="_blank">
+								<strong>Relação Participantes por Família</strong>
+							</a>
+						</h6>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span6">
+					<div class="box">
+						<h6>
+							<a href="/relacaoEstatisticaParticipantesInscritos"
+								target="_blank">
+								<strong>Estatísticas dos Participantes</strong>
+							</a>
+						</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- FOOTER  -->
+	{% include 'footer.html'%}
+	<!-- END FOOTER -->
+</body>
+</html>

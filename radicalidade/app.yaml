@@ -1,0 +1,32 @@
+application: radicalidaderio
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+automatic_scaling:
+  max_idle_instances: 1
+  min_pending_latency: 3.0s
+
+default_expiration: "7d"
+  
+handlers:
+- url: /js
+  static_dir: js
+- url: /css
+  static_dir: css
+- url: /img
+  static_dir: img
+- url: /font
+  static_dir: font
+
+- url: /sitemap.xml
+  static_files: sitemap.xml
+  upload: sitemap.xml
+  
+- url: /robots.txt
+  static_files: robots.txt
+  upload: robots.txt
+
+- url: /.*
+  script: controller.application
