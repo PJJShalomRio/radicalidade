@@ -1,7 +1,7 @@
 """
 @author: matheus cardoso
  
-Copyright (C) 2013 MVM Tecnologia
+Copyright (C) 2014 MVM Tecnologia
 """
 
 from google.appengine.ext import db
@@ -31,11 +31,8 @@ class Participante(db.Model):
     telCelular2Contato = db.StringProperty()
     telResidencialContato = db.StringProperty()
     telComercialContato = db.StringProperty()
-    termoCompromisso = db.StringProperty()
     ficouSabendo = db.StringListProperty()
     
-    familia = db.StringProperty()
     pagouInscricao = db.StringProperty()
-    jaChegou = db.StringProperty()
     
     dataInscricao = db.DateTimeProperty(auto_now=True, auto_now_add=True)

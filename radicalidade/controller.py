@@ -5,7 +5,6 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import RequestHandler, template
 from google.appengine.ext.webapp.util import run_wsgi_app
 from model import Participante
-from random import randint
 import collections
 import csv
 
@@ -22,7 +21,6 @@ class InscricaoParticipanteHandler(RequestHandler):
     def get(self):
         self.response.out.write(template.render('pages/inscricaoParticipante.html', {}))
     def post(self):
-        listaFamilia = ['BRANCA', 'VERMELHA', 'AMARELA', 'VERDE', 'AZUL', 'CORAL', 'PRETA', 'ROXA']
         
         try:
             participante = Participante()
@@ -50,12 +48,9 @@ class InscricaoParticipanteHandler(RequestHandler):
             participante.telCelular2Contato = self.request.get('telCelular2Contato')
             participante.telResidencialContato = self.request.get('telResidencialContato')
             participante.telComercialContato = self.request.get('telComercialContato')
-            participante.termoCompromisso = self.request.get('termoCompromisso')
             participante.ficouSabendo = self.request.get_all('ficouSabendo')
 
             participante.pagouInscricao = 'N'
-            participante.jaChegou = 'N'
-            participante.familia = listaFamilia[randint(0, 7)]
             
             participanteJaExiste = Participante.all().filter('nome = ', participante.nome).count()
             if participanteJaExiste is None or participanteJaExiste == 0: 
@@ -160,7 +155,7 @@ class ExportarParticipantesHandler(RequestHandler):
                              "Alergias", "Medicamentos",
                              "Nome do Contato",
                              "Tel Celular1 Contato", "Tel Celular2 Contato", "Tel Residencial Contato", "Tel Comercial Contato",
-                             "Familia", "Pagou a Inscricao", "Ja Chegou"])
+                             "Pagou a Inscricao"])
             
             for participante in Participante.all().order('nome'):
                 writer.writerow([smart_str(participante.nome, encoding='ISO-8859-1'),
@@ -183,20 +178,8 @@ class ExportarParticipantesHandler(RequestHandler):
                                  smart_str(participante.telCelular2Contato, encoding='ISO-8859-1'),
                                  smart_str(participante.telResidencialContato, encoding='ISO-8859-1'),
                                  smart_str(participante.telComercialContato, encoding='ISO-8859-1'),
-                                 smart_str(participante.familia, encoding='ISO-8859-1'),
-                                 smart_str(participante.pagouInscricao, encoding='ISO-8859-1'),
-                                 smart_str(participante.jaChegou, encoding='ISO-8859-1')
+                                 smart_str(participante.pagouInscricao, encoding='ISO-8859-1')
                                  ])
-        
-class AtualizarHandler(RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        if user and users.is_current_user_admin():
-            for participante in Participante.all():
-                participante.jaChegou = 'N'
-                participante.put()
-                
-        self.response.out.write(template.render('pages/index.html', {}))
 
 application = webapp.WSGIApplication(
                                      [('/', HomeHandler),
